@@ -1,6 +1,6 @@
 <?php
 namespace rankup\permission;
-use _64FF00\PurePerms\PPGroup;
+use plugins\_64FF00\PurePerms\PPGroup;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
