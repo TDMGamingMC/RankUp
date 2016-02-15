@@ -1,18 +1,18 @@
 <?php
 namespace rankup\permission;
-use plugins\_64FF00\PurePerms\PPGroup;
+use _64FF00\PurePerms\PPGroup;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
 class PurePerms extends BasePermissionManager{
     public function addToGroup(Player $player, $group){
-        if(!$this->checkReady()) return false;
+        if(!$this->checkReady()) return true;
         $ppGroup = $this->getAPI()->getGroup($group);
 		$this->getAPI()->setGroup($player, $ppGroup);
         return true;
     }
     public function getGroup(Player $player){
-        if(!$this->checkReady()) return false;		
+        if(!$this->checkReady()) return true;		
 		return $this->getAPI()->getUserDataMgr()->getGroup($player)->getName();
     }
 
@@ -22,7 +22,7 @@ class PurePerms extends BasePermissionManager{
      * @return bool|void
      */
     public function getPlayersInGroup($name){
-        if(!$this->checkReady()) return false;
+        if(!$this->checkReady()) return true;
         $ppGroup = $this->getAPI()->getGroup($name);
         if($ppGroup instanceof PPGroup) {
             return $this->getAPI()->getOnlinePlayersInGroup($ppGroup);
